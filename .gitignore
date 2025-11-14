@@ -103,6 +103,8 @@ celerybeat.pid
 
 # Environments
 .env
+.env.*
+!.env.example
 .venv
 env/
 venv/
@@ -130,7 +132,10 @@ dmypy.json
 
 # FastAPI specific
 *.db
+*.log
+*.pid
 mindlab_health.log
+server.pid
 
 # Database dumps and backups
 *.sql
@@ -145,6 +150,7 @@ temp_*.py
 
 # Backup and temporary files
 *.backup
+*.backup_*
 *.bak
 *.tmp
 *_backup.*
@@ -152,6 +158,8 @@ temp_*.py
 *_temp.*
 *_fixed.*
 *_original.*
+*_header.*
+version_backup/
 
 # IDE and editor files
 .vscode/
@@ -171,6 +179,8 @@ Thumbs.db
 
 # Docker and containerization
 volumes/
+backups/
+deployment/
 .dockerignore
 
 # Logs and monitoring
@@ -193,7 +203,9 @@ protect_*.py
 
 # CSV data files
 *.csv
+!requirements.txt
 Master_Ingredients_Database.csv
+expanded_ingredients.csv
 
 # Generated credentials and certificates
 credentials.json
@@ -205,3 +217,18 @@ credentials.json
 docker-compose.override.yml
 .env.local
 .env.development
+
+# Binary executables (install separately)
+*.exe
+ngrok.exe
+cloudflared.exe
+
+# PowerShell scripts (except essential)
+**/migrate*.ps1
+**/setup*.ps1
+**/install*.ps1
+**/protect*.ps1
+**/reset*.ps1
+**/start*.ps1
+*.bat
+!start_server.bat
