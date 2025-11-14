@@ -1,14 +1,151 @@
-fastapi>=0.110.0
-uvicorn[standard]>=0.27.0
-pydantic[email]>=2.0.0
-SQLAlchemy>=2.0.0
-psycopg[binary]>=3.1.0
-passlib[bcrypt]>=1.7.4
-python-multipart>=0.0.6
-python-jose[cryptography]>=3.3.0
-python-dotenv==1.0.0
-pytest>=7.4.0
-httpx>=0.25.0
-google-api-python-client>=2.80.0
-google-auth-httplib2>=0.1.0
-google-auth-oauthlib>=0.5.0
+# MindLab Health - Production Requirements
+# =========================================
+# For Hostinger VPS Ubuntu Deployment with Python Server
+# Python 3.10+ required
+
+# ==========================================
+# CORE FRAMEWORK
+# ==========================================
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+python-multipart==0.0.12
+python-dotenv==1.0.1
+
+# ==========================================
+# ASYNC/PERFORMANCE
+# ==========================================
+httpx==0.27.2
+aiofiles==24.1.0
+anyio==4.6.2.post1
+
+# ==========================================
+# DATABASE & ORM
+# ==========================================
+SQLAlchemy==2.0.36
+psycopg2-binary==2.9.10
+alembic==1.14.0
+
+# PostgreSQL async support (optional but recommended)
+asyncpg==0.30.0
+
+# ==========================================
+# AUTHENTICATION & SECURITY
+# ==========================================
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.2.1
+PyJWT==2.10.1
+cryptography==44.0.0
+
+# ==========================================
+# VALIDATION & SERIALIZATION
+# ==========================================
+pydantic==2.10.3
+pydantic[email]==2.10.3
+email-validator==2.2.0
+
+# ==========================================
+# GOOGLE CALENDAR INTEGRATION
+# ==========================================
+google-api-python-client==2.154.0
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.1
+google-auth==2.37.0
+
+# ==========================================
+# DATE/TIME HANDLING
+# ==========================================
+python-dateutil==2.9.0.post0
+
+# ==========================================
+# ENVIRONMENT & CONFIGURATION
+# ==========================================
+pydantic-settings==2.6.1
+
+# ==========================================
+# MONITORING & LOGGING
+# ==========================================
+# Structured logging
+python-json-logger==3.2.1
+
+# Error tracking (optional)
+sentry-sdk[fastapi]==2.19.2
+
+# ==========================================
+# CORS & MIDDLEWARE
+# ==========================================
+# Built into FastAPI, but explicit for clarity
+starlette==0.41.3
+
+# ==========================================
+# TESTING (Development/CI/CD)
+# ==========================================
+pytest==8.3.4
+pytest-asyncio==0.24.0
+pytest-cov==6.0.0
+
+# ==========================================
+# CACHING (Optional but recommended)
+# ==========================================
+redis==5.2.1
+hiredis==3.0.0
+
+# ==========================================
+# RATE LIMITING
+# ==========================================
+slowapi==0.1.9
+
+# ==========================================
+# FILE HANDLING
+# ==========================================
+python-magic==0.4.27
+Pillow==11.0.0
+
+# ==========================================
+# WEBHOOK/API INTEGRATIONS
+# ==========================================
+requests==2.32.3
+
+# ==========================================
+# TIMEZONE SUPPORT
+# ==========================================
+pytz==2024.2
+
+# ==========================================
+# EXCEL/CSV HANDLING
+# ==========================================
+openpyxl==3.1.5
+pandas==2.2.3
+
+# ==========================================
+# SYSTEM UTILITIES
+# ==========================================
+# Process management for production
+gunicorn==23.0.0
+
+# ==========================================
+# SSL/HTTPS (for production)
+# ==========================================
+certifi==2024.8.30
+
+# ==========================================
+# MONITORING & HEALTH CHECKS
+# ==========================================
+psutil==6.1.0
+
+# ==========================================
+# AI CHATBOT (Optional - uncomment if needed)
+# ==========================================
+# openai==1.57.2
+# anthropic==0.40.0
+
+# ==========================================
+# WHATSAPP API (Optional - uncomment if needed)
+# ==========================================
+# twilio==9.3.7
+
+# ==========================================
+# PAYMENT PROCESSING (Optional - uncomment if needed)
+# ==========================================
+# stripe==11.2.0
+
