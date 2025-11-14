@@ -201,6 +201,7 @@ protect_*.py
 !CONTRIBUTING.md
 !LICENSE.md
 !DEPLOYMENT_HOSTINGER.md
+!QUICK_REFERENCE.md
 
 # CSV data files
 *.csv
