@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MindLab Health</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">MindLab Health</div>
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Appointments</a>
+                <a href="#">Messages</a>
+                <a href="#">Profile</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="dashboard-header">
+                <h1>Welcome, <span id="userName">User</span></h1>
+                <p>Role: <span id="userRole">Loading...</span></p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Appointments</h3>
+                    <div class="stat-value" id="appointmentCount">Loading...</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Messages</h3>
+                    <div class="stat-value" id="messageCount">Loading...</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Users</h3>
+                    <div class="stat-value" id="userCount">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Admin Modules Section -->
+            <div id="adminModules" style="display: none;">
+                <h2>Admin Modules</h2>
+                <div class="admin-modules-grid">
+                    <div class="module-card">
+                        <h3>👥 User Management</h3>
+                        <p>Manage users, roles, and permissions</p>
+                        <button onclick="loadModule('users')">Open</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>📅 Appointment Management</h3>
+                        <p>View and manage all appointments</p>
+                        <button onclick="loadModule('appointments')">Open</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>💬 Message Center</h3>
+                        <p>Monitor all system messages</p>
+                        <button onclick="loadModule('messages')">Open</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>📊 Analytics & Reports</h3>
+                        <p>View system analytics and reports</p>
+                        <button onclick="loadModule('analytics')">Open</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>⚙️ System Settings</h3>
+                        <p>Configure system settings</p>
+                        <button onclick="loadModule('settings')">Open</button>
+                    </div>
+                    <div class="module-card">
+                        <h3>🔒 Security & Logs</h3>
+                        <p>View security logs and audit trails</p>
+                        <button onclick="loadModule('security')">Open</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div id="activityList">
+                    <p>Loading recent activities...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/static/js/rbac.js"></script>
+    <script src="/static/js/role-dashboards.js"></script>
+    <script src="/static/js/debug-modules.js"></script>
+    <script src="/static/js/demo-features.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>

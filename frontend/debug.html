@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Healthcare Modules</title>
+</head>
+<body>
+    <h1>Healthcare Module Debug Test</h1>
+    
+    <div>
+        <h2>Test Module Functions</h2>
+        <button onclick="testPatientModule()">Test Patient Management</button>
+        <button onclick="testHealthRecords()">Test Health Records</button>
+        <button onclick="testNutrition()">Test Nutrition</button>
+        <button onclick="testEarnings()">Test Earnings</button>
+        <button onclick="testSystemAdmin()">Test System Admin</button>
+    </div>
+
+    <div id="results" style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+        <h3>Debug Results:</h3>
+        <pre id="debug-output"></pre>
+    </div>
+
+    <script>
+        function log(message) {
+            const output = document.getElementById('debug-output');
+            output.textContent += new Date().toLocaleTimeString() + ': ' + message + '\n';
+            console.log(message);
+        }
+
+        function testPatientModule() {
+            log('Testing Patient Management module...');
+            log('Checking if openPatientsModule function exists: ' + (typeof openPatientsModule !== 'undefined'));
+            log('Checking if switchDashboardTab function exists: ' + (typeof switchDashboardTab !== 'undefined'));
+            log('Checking if patient-management-page element exists: ' + (document.getElementById('patient-management-page') !== null));
+            
+            if (typeof openPatientsModule !== 'undefined') {
+                try {
+                    openPatientsModule();
+                    log('✅ openPatientsModule() called successfully');
+                } catch (error) {
+                    log('❌ Error calling openPatientsModule(): ' + error.message);
+                }
+            }
+        }
+
+        function testHealthRecords() {
+            log('Testing Health Records module...');
+            log('Checking if openHealthRecordsModule function exists: ' + (typeof openHealthRecordsModule !== 'undefined'));
+            log('Checking if health-records-page element exists: ' + (document.getElementById('health-records-page') !== null));
+            
+            if (typeof openHealthRecordsModule !== 'undefined') {
+                try {
+                    openHealthRecordsModule();
+                    log('✅ openHealthRecordsModule() called successfully');
+                } catch (error) {
+                    log('❌ Error calling openHealthRecordsModule(): ' + error.message);
+                }
+            }
+        }
+
+        function testNutrition() {
+            log('Testing Nutrition module...');
+            log('Checking if openNutritionPlanModule function exists: ' + (typeof openNutritionPlanModule !== 'undefined'));
+            log('Checking if nutrition-management-page element exists: ' + (document.getElementById('nutrition-management-page') !== null));
+            
+            if (typeof openNutritionPlanModule !== 'undefined') {
+                try {
+                    openNutritionPlanModule();
+                    log('✅ openNutritionPlanModule() called successfully');
+                } catch (error) {
+                    log('❌ Error calling openNutritionPlanModule(): ' + error.message);
+                }
+            }
+        }
+
+        function testEarnings() {
+            log('Testing Earnings module...');
+            log('Checking if openEarningsModule function exists: ' + (typeof openEarningsModule !== 'undefined'));
+            log('Checking if earnings-commission-page element exists: ' + (document.getElementById('earnings-commission-page') !== null));
+            
+            if (typeof openEarningsModule !== 'undefined') {
+                try {
+                    openEarningsModule();
+                    log('✅ openEarningsModule() called successfully');
+                } catch (error) {
+                    log('❌ Error calling openEarningsModule(): ' + error.message);
+                }
+            }
+        }
+
+        function testSystemAdmin() {
+            log('Testing System Admin module...');
+            log('Checking if openSystemAdminModule function exists: ' + (typeof openSystemAdminModule !== 'undefined'));
+            log('Checking if system-admin-page element exists: ' + (document.getElementById('system-admin-page') !== null));
+            
+            if (typeof openSystemAdminModule !== 'undefined') {
+                try {
+                    openSystemAdminModule();
+                    log('✅ openSystemAdminModule() called successfully');
+                } catch (error) {
+                    log('❌ Error calling openSystemAdminModule(): ' + error.message);
+                }
+            }
+        }
+
+        // Load the role-dashboards.js script
+        const script = document.createElement('script');
+        script.src = '/js/role-dashboards.js';
+        script.onload = function() {
+            log('✅ role-dashboards.js loaded successfully');
+        };
+        script.onerror = function() {
+            log('❌ Failed to load role-dashboards.js');
+        };
+        document.head.appendChild(script);
+
+        // Load the main index.html functions (for switchDashboardTab)
+        fetch('/')
+            .then(response => response.text())
+            .then(html => {
+                // Extract and execute the switchDashboardTab function
+                const scriptMatch = html.match(/<script[^>]*>(.*?)<\/script>/s);
+                if (scriptMatch) {
+                    try {
+                        eval(scriptMatch[1]);
+                        log('✅ Main functions loaded');
+                    } catch (error) {
+                        log('❌ Error loading main functions: ' + error.message);
+                    }
+                }
+            })
+            .catch(error => {
+                log('❌ Error loading main page: ' + error.message);
+            });
+    </script>
+</body>
+</html>
